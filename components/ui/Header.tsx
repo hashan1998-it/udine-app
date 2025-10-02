@@ -16,10 +16,11 @@ export default Header;
 
 const styles = StyleSheet.create({
   container: {
-    height: 60,
+    height: 40,
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    marginBottom: 15,
   },
 });

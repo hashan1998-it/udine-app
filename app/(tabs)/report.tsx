@@ -1,10 +1,11 @@
 import { View, Text } from "react-native";
 import React from "react";
+import Title from "@/components/ui/Title";
 
 const Report = () => {
   return (
     <View>
-      <Text>Report</Text>
+      <Title>Report</Title>
     </View>
   );
 };

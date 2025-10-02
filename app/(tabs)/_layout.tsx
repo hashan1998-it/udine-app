@@ -3,14 +3,16 @@ import React from "react";
 import { Tabs } from "expo-router";
 import { Icons } from "@/components/icons";
 import { COLORS } from "@/constants/colors";
+import Header from "@/components/ui/Header";
 
 const TabLayout = () => {
   return (
     <Tabs
       initialRouteName="tables"
       screenOptions={{
-        headerShown: false,
-        sceneStyle: { backgroundColor: "white" },
+        headerShown: true,
+        header: () => <Header />,
+        sceneStyle: { backgroundColor: "white",paddingHorizontal: 16 },
         tabBarActiveTintColor: COLORS.tabBarActiveTintColor,
         tabBarInactiveTintColor: COLORS.tabBarInactiveTintColor,
         tabBarStyle: {

@@ -1,12 +1,13 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View } from "react-native";
+import React from "react";
+import Title from "@/components/ui/Title";
 
 const Tables = () => {
   return (
     <View>
-      <Text>Tables</Text>
+      <Title>Tables</Title>
     </View>
-  )
-}
+  );
+};
 
-export default Tables
+export default Tables;

@@ -46,15 +46,15 @@ const Button = ({
       },
     };
 
-    // Variant styles
+
     const variantStyles: Record<ButtonVariant, ViewStyle> = {
       solid: {
         backgroundColor: disabled ? "#555555" : "#121212",
       },
       outlined: {
         backgroundColor: "transparent",
-        borderWidth: 1.5,
-        borderColor: disabled ? "#555555" : "#121212",
+        borderWidth: 1,
+        borderColor: disabled ? "#555555" : "#636363",
       },
       link: {
         backgroundColor: "transparent",
@@ -74,7 +74,6 @@ const Button = ({
   };
 
   const getTextStyle = (): TextStyle => {
-    // Size text styles
     const sizeTextStyles: Record<ButtonSize, TextStyle> = {
       xs: {
         fontSize: 11,
@@ -90,13 +89,12 @@ const Button = ({
       },
     };
 
-    // Variant text styles
     const variantTextStyles: Record<ButtonVariant, TextStyle> = {
       solid: {
         color: disabled ? "#aaaaaa" : "white",
       },
       outlined: {
-        color: disabled ? "#555555" : "#121212",
+        color: disabled ? "#555555" : "#636363",
       },
       link: {
         color: disabled ? "#555555" : "#007AFF",

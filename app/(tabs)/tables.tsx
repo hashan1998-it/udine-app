@@ -1,7 +1,7 @@
-import { View, ScrollView } from "react-native";
+import { View } from "react-native";
 import React, { useState } from "react";
 import Title from "@/components/ui/Title";
-import Button from "@/components/ui/Button";
+import ButtonGroup from "@/components/ui/ButtonGroup";
 
 const Tables = () => {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -10,21 +10,12 @@ const Tables = () => {
   return (
     <View>
       <Title>Tables</Title>
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={{ gap: 8, marginTop: 16}}
-      >
-        {filters.map((filter) => (
-          <Button
-            key={filter}
-            title={filter}
-            variant={activeFilter === filter ? "solid" : "outlined"}
-            size="md"
-            onPress={() => setActiveFilter(filter)}
-          />
-        ))}
-      </ScrollView>
+      <ButtonGroup
+        options={filters}
+        activeOption={activeFilter}
+        onOptionPress={setActiveFilter}
+        style={{ marginTop: 16 }}
+      />
     </View>
   );
 };

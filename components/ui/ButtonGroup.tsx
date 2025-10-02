@@ -23,8 +23,8 @@ const ButtonGroup = ({
     <ScrollView
       horizontal
       showsHorizontalScrollIndicator={false}
-      style={[{ marginHorizontal: -16 }, style]}
-      contentContainerStyle={{ gap: 8, paddingLeft: 16 }}
+      style={[{ flexGrow: 0, flexShrink: 0, marginHorizontal: -16 }, style]}
+      contentContainerStyle={{ gap: 8, paddingHorizontal: 16 }}
     >
       {options.map((option) => (
         <Button

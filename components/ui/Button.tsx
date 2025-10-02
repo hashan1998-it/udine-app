@@ -1,4 +1,4 @@
-import { Text, Pressable, StyleSheet, ViewStyle, TextStyle } from "react-native";
+import { Text, Pressable, StyleSheet, ViewStyle, TextStyle, StyleProp } from "react-native";
 import React from "react";
 
 type ButtonVariant = "solid" | "outlined" | "link" | "text";
@@ -10,6 +10,8 @@ interface ButtonProps {
   size?: ButtonSize;
   onPress?: () => void;
   disabled?: boolean;
+  style?: StyleProp<ViewStyle>;
+  textStyle?: StyleProp<TextStyle>;
 }
 
 const Button = ({ 
@@ -17,7 +19,9 @@ const Button = ({
   variant = "solid", 
   size = "md",
   onPress,
-  disabled = false 
+  disabled = false,
+  style,
+  textStyle,
 }: ButtonProps) => {
   const getContainerStyle = (): ViewStyle => {
     const baseStyle: ViewStyle = {
@@ -45,7 +49,6 @@ const Button = ({
         paddingHorizontal: 24,
       },
     };
-
 
     const variantStyles: Record<ButtonVariant, ViewStyle> = {
       solid: {
@@ -117,11 +120,14 @@ const Button = ({
       style={({ pressed }) => [
         getContainerStyle(),
         pressed && !disabled && styles.pressed,
+        style,
       ]}
       onPress={onPress}
       disabled={disabled}
     >
-      <Text style={getTextStyle()}>{title}</Text>
+      <Text style={[getTextStyle(), textStyle]}>
+        {title}
+      </Text>
     </Pressable>
   );
 };

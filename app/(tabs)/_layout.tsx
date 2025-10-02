@@ -1,5 +1,4 @@
-import { View, Text } from "react-native";
-import React from "react";
+import { View } from "react-native";
 import { Tabs } from "expo-router";
 import { Icons } from "@/components/icons";
 import { COLORS } from "@/constants/colors";
@@ -12,7 +11,7 @@ const TabLayout = () => {
       screenOptions={{
         headerShown: true,
         header: () => <Header />,
-        sceneStyle: { backgroundColor: "white",paddingHorizontal: 16 },
+        sceneStyle: { backgroundColor: "white", paddingHorizontal: 16 },
         tabBarActiveTintColor: COLORS.tabBarActiveTintColor,
         tabBarInactiveTintColor: COLORS.tabBarInactiveTintColor,
         tabBarStyle: {

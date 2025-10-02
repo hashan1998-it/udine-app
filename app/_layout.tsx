@@ -1,12 +1,14 @@
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 export default function RootLayout() {
   return (
     <SafeAreaProvider>
-      <StatusBar style="dark" />
-      <Stack screenOptions={{ headerShown: false }} />
+      <SafeAreaView style={{ flex: 1 }} edges={["top", "right", "left"]}>
+        <StatusBar style="dark" />
+        <Stack screenOptions={{ headerShown: false }} />
+      </SafeAreaView>
     </SafeAreaProvider>
   );
 }

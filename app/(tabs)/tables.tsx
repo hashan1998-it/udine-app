@@ -3,18 +3,15 @@ import React, { useState } from "react";
 import Title from "@/components/ui/Title";
 import ButtonGroup from "@/components/ui/ButtonGroup";
 import Card from "@/components/ui/Card";
-import { Utensils, CheckCircle, Clock, Sparkles } from "lucide-react-native";
+import {
+  Utensils,
+  Armchair,
+  BadgeDollarSign,
+} from "lucide-react-native";
 
 const Tables = () => {
   const [activeFilter, setActiveFilter] = useState("All");
-  const filters = [
-    "All",
-    "Available",
-    "Occupied",
-    "Reserved",
-    "Cleaning",
-    "Out of Service",
-  ];
+  const filters = ["All", "Dining", "Free", "Ready to Pay"];
 
   const tableData = [
     {
@@ -29,85 +26,53 @@ const Tables = () => {
     {
       id: "2",
       tableNumber: "02",
-      status: "Occupied",
-      assignedTo: "Nimal S.",
-      cardBackgroundColor: "#4CAF50",
-      textColor: "#003300",
-      statusIcon: Utensils,
+      status: "Free",
+      cardBackgroundColor: "#12C65B",
+      textColor: "#042F15",
+      statusIcon: Armchair,
     },
     {
       id: "3",
       tableNumber: "03",
-      status: "Available",
+      status: "Ready to Pay",
       assignedTo: "Saman P.",
-      cardBackgroundColor: "#2196F3",
-      textColor: "#001A33",
-      statusIcon: CheckCircle,
+      cardBackgroundColor: "#F44336",
+      textColor: "#570A05",
+      statusIcon: BadgeDollarSign,
     },
     {
       id: "4",
       tableNumber: "04",
-      status: "Reserved",
+      status: "Ready to Pay",
       assignedTo: "Perera A.",
-      cardBackgroundColor: "#9C27B0",
-      textColor: "#1A0033",
-      statusIcon: Clock,
+      cardBackgroundColor: "#F44336",
+      textColor: "#570A05",
+      statusIcon: BadgeDollarSign,
     },
     {
       id: "5",
       tableNumber: "05",
-      status: "Cleaning",
+      status: "Ready to Pay",
       assignedTo: "Ruwan D.",
-      cardBackgroundColor: "#FFC107",
-      textColor: "#3D2F00",
-      statusIcon: Sparkles,
+      cardBackgroundColor: "#F44336",
+      textColor: "#570A05",
+      statusIcon: BadgeDollarSign,
     },
     {
       id: "6",
       tableNumber: "06",
-      status: "Dining",
+      status: "Ready",
       assignedTo: "Dilshan M.",
-      cardBackgroundColor: "#FF9800",
-      textColor: "#382A00",
-      statusIcon: Utensils,
-    },
-    {
-      id: "7",
-      tableNumber: "07",
-      status: "Available",
-      assignedTo: "Chamara L.",
-      cardBackgroundColor: "#2196F3",
-      textColor: "#001A33",
-      statusIcon: CheckCircle,
-    },
-    {
-      id: "8",
-      tableNumber: "08",
-      status: "Reserved",
-      assignedTo: "Nipun T.",
-      cardBackgroundColor: "#9C27B0",
-      textColor: "#1A0033",
-      statusIcon: Clock,
-    },
-    {
-      id: "9",
-      tableNumber: "09",
-      status: "Occupied",
-      assignedTo: "Tharindu W.",
-      cardBackgroundColor: "#4CAF50",
-      textColor: "#003300",
-      statusIcon: Utensils,
-    },
-    {
-      id: "10",
-      tableNumber: "10",
-      status: "Dining",
-      assignedTo: "Supun R.",
-      cardBackgroundColor: "#FF9800",
-      textColor: "#382A00",
-      statusIcon: Utensils,
+      cardBackgroundColor: "#00BCD4",
+      textColor: "#00363D",
+      statusIcon: Armchair,
     },
   ];
+
+  const filteredData =
+    activeFilter === "All"
+      ? tableData
+      : tableData.filter((table) => table.status === activeFilter);
 
   return (
     <View style={{ flex: 1 }}>
@@ -121,7 +86,7 @@ const Tables = () => {
         }}
       />
       <FlatList
-        data={tableData}
+        data={filteredData}
         numColumns={2}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
